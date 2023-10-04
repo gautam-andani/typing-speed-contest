@@ -1,18 +1,14 @@
 import openai
-import json
 
-
-def random_para_generator(paragraph_words):
-       apikey = "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"        #It's an expired key so no need to worry
-       openai.api_key = apikey
-       openai.Model.list()
-
-       completion = openai.ChatCompletion.create(
-       model="gpt-3.5-turbo",
-       messages=[
-       {"role": "user", "content": f"Generate a random paragraph for typing speed measure of about {paragraph_words} words."}
-       ]
-       )
-
-       a=completion.choices[0].message
-       return a['content']
+def random_paragraph():
+    apikey = "YOUR_API_KEY"
+    openai.api_key = apikey
+    
+    completion = openai.Completion.create(
+        engine="davinci-codex",  # You can choose a different engine
+        prompt="Generate a random creative paragraph of about 40 words.",
+        max_tokens=40,
+        n = 1
+    )
+    
+    return completion.choices[0].text.strip()
