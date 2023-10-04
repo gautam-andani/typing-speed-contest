@@ -13,7 +13,7 @@ def home() -> 'redirect':
 
 @app.route('/entry')
 def entry() -> 'html':
-    task = paragraphs(40)   #generates random paragraph of 40 words using openai
+    task = paragraphs.random_para_generator(40)   #generates random paragraph of 40 words using openai
     return render_template('entry.html', task=task, the_title='Welcome to my site!')
 
 
