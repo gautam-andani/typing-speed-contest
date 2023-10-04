@@ -10,7 +10,7 @@ def random_para_generator(paragraph_words):
        completion = openai.ChatCompletion.create(
        model="gpt-3.5-turbo",
        messages=[
-       {"role": "user", "content": f"Generate a random paragraph for typing speed measure of about {paragraph_words}."}
+       {"role": "user", "content": f"Generate a random paragraph for typing speed measure of about {paragraph_words} words."}
        ]
        )
 
